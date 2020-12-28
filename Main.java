@@ -14,21 +14,15 @@ class Main extends JFrame{
     public void setup(){
 
 		setupScreen();
-
-		game = new Game();
-
-
-
-		this.setContentPane(new DrawingPanel());
-
-		this.repaint();
+		game = new Game(this);
 
     }
 
-    public void setupScreen(){
+    public void setupScreen(){ //sets up screen and packs screen
 
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setContentPane(new DrawingPanel());
 		this.pack();
 		this.setVisible(true);
 	}
@@ -36,7 +30,8 @@ class Main extends JFrame{
 
 	public class DrawingPanel extends JPanel{
 		public void paintComponent(Graphics g){
-			game.draw(g);
+			if(game != null)
+				game.draw(g);
 		}
 	}
 

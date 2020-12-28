@@ -2,6 +2,7 @@ import java.awt.Graphics;
 
 public class Board {
 
+	private Main m;
 	private int numRow = 8;
 	private int numCol = 8;
 
@@ -23,7 +24,7 @@ public class Board {
 						  {0, 1, 0, 1, 0, 1, 0, 1}
 						};
 
-	public Board(){
+	public Board(Main m){
 
 		for(int x=0;x < numRow;x++){
 			for(int y=0;y< numCol;y++){
@@ -33,6 +34,8 @@ public class Board {
 		}
 
 		placePieces();
+
+		m.repaint();
 	}
 
 	public void placePieces(){
